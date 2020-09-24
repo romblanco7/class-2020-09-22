@@ -394,10 +394,22 @@ sep_old &lt;-
   filter(u_grad &gt; 10) %&gt;%
   group_by(id, title, name, department) %&gt;%
   summarise(ugrad = sum(u_grad), .groups = &quot;drop&quot;) 
-  
-
-
-# But this is not correct! Look for Gov 50: Data. What do you see? What can you
+  sep_old</code></pre>
+<pre><code>## # A tibble: 423 x 5
+##    id     title       name                       department                ugrad
+##    &lt;chr&gt;  &lt;chr&gt;       &lt;chr&gt;                      &lt;chr&gt;                     &lt;dbl&gt;
+##  1 107341 GENED 1076  Equity in American Educat~ General Education           155
+##  2 107367 PHYSCI 10   Quant, Stat, &amp; Comp Chemi~ Chemistry &amp; Chemical Bio~    31
+##  3 107388 ECON 1936   Keynes                     Economics                    19
+##  4 107464 GENED 1011  Contemporary Develop Coun~ General Education            62
+##  5 107669 GENED 1033  Conflict Resolution in a ~ General Education            96
+##  6 107821 GENED 1120  Politic. Econ of Globaliz~ General Education           106
+##  7 107973 HIST 1155   Early Modern Europe, 1450~ History                      22
+##  8 108465 PHYSICS 14~ Quantum Mechanics I        Physics                      30
+##  9 108482 GENED 1130  Power to the People        General Education            27
+## 10 108515 FRSEMR 43W  History, Nationalism &amp; th~ Freshman Seminars            12
+## # ... with 413 more rows</code></pre>
+<pre class="r"><code># But this is not correct! Look for Gov 50: Data. What do you see? What can you
 # do to clean it up?</code></pre>
 </div>
 <div id="scene-1" class="section level3">
@@ -416,7 +428,23 @@ sep_old &lt;-
          department = course_department) %&gt;% 
   filter(u_grad &gt; 10) %&gt;%
   group_by(id, title, name, department) %&gt;%
-  summarise(ugrad = sum(u_grad), .groups = &quot;drop&quot;) </code></pre>
+  summarise(ugrad = sum(u_grad), .groups = &quot;drop&quot;) 
+  
+sep_new</code></pre>
+<pre><code>## # A tibble: 409 x 5
+##    id     title       name                       department                ugrad
+##    &lt;chr&gt;  &lt;chr&gt;       &lt;chr&gt;                      &lt;chr&gt;                     &lt;dbl&gt;
+##  1 107341 GENED 1076  Equity in American Educat~ General Education           146
+##  2 107367 PHYSCI 10   Quant, Stat, &amp; Comp Chemi~ Chemistry &amp; Chemical Bio~    16
+##  3 107388 ECON 1936   Keynes                     Economics                    19
+##  4 107464 GENED 1011  Contemporary Develop Coun~ General Education            54
+##  5 107669 GENED 1033  Conflict Resolution in a ~ General Education            94
+##  6 107821 GENED 1120  Politic. Econ of Globaliz~ General Education            89
+##  7 107973 HIST 1155   Early Modern Europe, 1450~ History                      23
+##  8 108465 PHYSICS 14~ Quantum Mechanics I        Physics                      31
+##  9 108482 GENED 1130  Power to the People        General Education            21
+## 10 108515 FRSEMR 43W  History, Nationalism &amp; th~ Freshman Seminars            12
+## # ... with 399 more rows</code></pre>
 </div>
 <div id="scene-2" class="section level3">
 <h3>Scene 2</h3>
